@@ -145,6 +145,29 @@ this.createjs = this.createjs||{};
 		pt.y = pt2.y + (f * (pt1.y - pt2.y));
 		return pt;
 	};
+
+	Point.distance = function(pt, pt2, pt) {
+		pt = pt||{};
+		return pt1.subtract(pt2, pt).length();
+	};
+
+	p.add = function(v, pt) {
+		pt = pt||{};
+		pt.x = this.x + v.x; 
+		pt.y = this.y + v.y;
+		return pt;
+	};
+
+	p.length = function() {
+		return Math.sqrt((this.x * this.x) + (this.y * this.y));
+	}
+
+	p.subtract = function(v, pt) {
+		pt = pt||{};
+		pt.x = this.x - v.x;
+		pt.y = this.y - v.y;
+		return pt;
+	};
 	
 	/**
 	 * Copies all properties from the specified point to this point.
