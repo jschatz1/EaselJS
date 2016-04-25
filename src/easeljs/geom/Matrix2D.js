@@ -365,6 +365,26 @@ this.createjs = this.createjs||{};
 	};
 
 	/**
+	 * Applies a clockwise rotation transformation to the matrix.
+	 * @method rotate
+	 * @param {Number} angle The angle to rotate by, in radians. To use a value in radians, multiply it by `180/Math.PI`.
+	 * @return {Matrix2D} This matrix. Useful for chaining method calls.
+	 **/
+	p.rotateInRads = function(angle) {
+		var cos = Math.cos(angle);
+		var sin = Math.sin(angle);
+
+		var a1 = this.a;
+		var b1 = this.b;
+
+		this.a = a1*cos+this.c*sin;
+		this.b = b1*cos+this.d*sin;
+		this.c = -a1*sin+this.c*cos;
+		this.d = -b1*sin+this.d*cos;
+		return this;
+	};
+
+	/**
 	 * Applies a skew transformation to the matrix.
 	 * @method skew
 	 * @param {Number} skewX The amount to skew horizontally in degrees. To use a value in radians, multiply it by `180/Math.PI`.

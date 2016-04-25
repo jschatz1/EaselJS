@@ -146,7 +146,7 @@ this.createjs = this.createjs||{};
 		return pt;
 	};
 
-	Point.distance = function(pt, pt2) {
+	Point.distance = function(pt1, pt2) {
 		var pt = new createjs.Point();
 		return pt1.subtract(pt2, pt).length();
 	};
